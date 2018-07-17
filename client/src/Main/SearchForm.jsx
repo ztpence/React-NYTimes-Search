@@ -43,7 +43,7 @@ class SearchForm extends Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <div>
-                        <label for="topic">Topic</label>
+                        <label htmlFor="topic">Topic</label>
                         <input
                             type="text"
                             name="topic"
@@ -53,7 +53,7 @@ class SearchForm extends Component {
                     </div>
 
                     <div>
-                        <label for="startYear">Start Year</label>
+                        <label htmlFor="startYear">Start Year</label>
                         <input
                             type="text"
                             name="startYear"
@@ -63,7 +63,7 @@ class SearchForm extends Component {
                     </div>
 
                     <div>
-                        <label for="endYear">End Year</label>
+                        <label htmlFor="endYear">End Year</label>
                         <input
                             type="text"
                             name="endYear"

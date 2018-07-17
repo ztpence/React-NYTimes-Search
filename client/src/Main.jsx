@@ -54,11 +54,22 @@ class Main extends Component {
         })
   }
 
+  handleSave = articleData => {
+      console.log('articleData', articleData)
+      axios.post('/api/articles', articleData)
+        .then(res => {
+            console.log('res', res)
+        })
+        .catch(err => {
+            console.log(err.response)
+        })
+  }
+
   render() {
     return (
       <main>
         <SearchForm handleSubmitSearch={this.handleSubmitSearch} />
-        <Results results={this.state.results} />
+        <Results results={this.state.results} handleSave={this.handleSave} />
         <SavedArticles />
         <button onClick={this.testAjax}>Test ajax</button>
       </main>
