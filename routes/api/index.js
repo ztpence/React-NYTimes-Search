@@ -23,6 +23,18 @@ router.post("/articles", (req, res) => {
       .catch(error => {
           res.json(error)
       })
-  });
+});
+
+router.delete("/articles/:id", (req, res) => {
+    // article.save()
+    db.Article.deleteOne({_id: req.params.id})
+      .then(response => {
+          console.log(response)
+          res.json(response)
+      })
+      .catch(error => {
+          res.json(error)
+      })
+});
 
 module.exports = router;

@@ -72,14 +72,15 @@ class Main extends Component {
 
   handleDelete = articleData => {
     console.log('user deleted:', articleData)
-    // console.log('articleData', articleData)
-    // axios.post('/api/articles', articleData)
-    //   .then(res => {
-    //       console.log('res', res)
-    //   })
-    //   .catch(err => {
-    //       console.log(err.response)
-    //   })
+    console.log('articleData', articleData)
+    axios.delete(`/api/articles/${articleData._id}`)
+      .then(res => {
+          console.log('res', res)
+          this.fetchSavedArticles()
+      })
+      .catch(err => {
+          console.log(err.response)
+      })
   }
 
   fetchSavedArticles = () => {
