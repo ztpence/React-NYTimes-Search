@@ -16,16 +16,7 @@ class Main extends Component {
         this.fetchSavedArticles()
     }
 
-  testAjax = () => {
-    axios
-      .get("/api/articles")
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err.response);
-      });
-  };
+  
 
   handleSubmitSearch = query => {
     console.log('query', query)
@@ -113,7 +104,7 @@ class Main extends Component {
             savedArticles={this.state.savedArticles}
             handleDelete={this.handleDelete}
         />
-        <button onClick={this.testAjax}>Test ajax</button>
+        
       </main>
     );
   }
