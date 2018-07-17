@@ -1,1 +1,1 @@
-# ReactNewsScraper
+# NYTimes News Search with React
