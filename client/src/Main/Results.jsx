@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 
-const Results = () => {
+const Results = props => {
 
     return (
         <div>
-            I'm Results!
+           {
+               props.results.map(article => {
+                   console.log('article', article)
+                   return (
+                       <div key={article.headline.main}>
+                            <h4><a href={article.web_url} target="_blank">{article.headline.main}</a></h4>
+                       </div>
+                   )
+
+               })
+           }
         </div>
     );
 }

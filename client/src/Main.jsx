@@ -58,7 +58,7 @@ class Main extends Component {
     return (
       <main>
         <SearchForm handleSubmitSearch={this.handleSubmitSearch} />
-        <Results />
+        <Results results={this.state.results} />
         <SavedArticles />
         <button onClick={this.testAjax}>Test ajax</button>
       </main>
