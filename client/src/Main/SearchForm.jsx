@@ -32,10 +32,15 @@ class SearchForm extends Component {
         })
     }
 
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.handleSubmitSearch(this.state);
+    }
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
 
                     <div>
                         <label for="topic">Topic</label>
