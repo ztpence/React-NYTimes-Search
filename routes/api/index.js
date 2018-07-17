@@ -14,9 +14,6 @@ router.get("/articles", (req, res) => {
 });
 
 router.post("/articles", (req, res) => {
-    console.log("works!");
-    console.log(req.body)
-    const article = new db.Article(req.body);
     // article.save()
     db.Article.create({data: req.body})
       .then(response => {

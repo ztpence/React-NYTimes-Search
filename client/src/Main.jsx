@@ -12,6 +12,10 @@ class Main extends Component {
         results: [],
     }
 
+    componentDidMount() {
+        this.fetchSavedArticles()
+    }
+
   testAjax = () => {
     axios
       .get("/api/articles")
@@ -59,6 +63,35 @@ class Main extends Component {
       axios.post('/api/articles', articleData)
         .then(res => {
             console.log('res', res)
+            this.fetchSavedArticles()
+        })
+        .catch(err => {
+            console.log(err.response)
+        })
+  }
+
+  handleDelete = articleData => {
+    console.log('user deleted:', articleData)
+    // console.log('articleData', articleData)
+    // axios.post('/api/articles', articleData)
+    //   .then(res => {
+    //       console.log('res', res)
+    //   })
+    //   .catch(err => {
+    //       console.log(err.response)
+    //   })
+  }
+
+  fetchSavedArticles = () => {
+
+    axios
+        .get('/api/articles')
+        .then(res => {
+            console.log('fetchSavedArticles',res)
+
+            this.setState({
+                savedArticles: res.data
+            })
         })
         .catch(err => {
             console.log(err.response)
@@ -68,9 +101,17 @@ class Main extends Component {
   render() {
     return (
       <main>
-        <SearchForm handleSubmitSearch={this.handleSubmitSearch} />
-        <Results results={this.state.results} handleSave={this.handleSave} />
-        <SavedArticles />
+        <SearchForm
+            handleSubmitSearch={this.handleSubmitSearch}
+        />
+        <Results
+            results={this.state.results}
+            handleSave={this.handleSave}
+        />
+        <SavedArticles
+            savedArticles={this.state.savedArticles}
+            handleDelete={this.handleDelete}
+        />
         <button onClick={this.testAjax}>Test ajax</button>
       </main>
     );

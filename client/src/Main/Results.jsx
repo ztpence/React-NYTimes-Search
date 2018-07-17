@@ -4,6 +4,7 @@ const Results = props => {
 
     return (
         <div>
+            <h4>Search Results</h4>
            {
                props.results.map(article => {
                    console.log('article', article)
